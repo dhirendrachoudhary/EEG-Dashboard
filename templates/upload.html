@@ -1,0 +1,74 @@
+    <!DOCTYPE html>
+    <html lang="en">    
+    <head>
+      <title>
+        Upload Data
+      </title>
+      <link href="{{url_for('static',filename = '/styles/dashboard.css')}}" rel="stylesheet" />
+    </head>
+    <body class="">
+      <div class="wrapper">
+        <div class="sidebar">
+          <div class="sidebar-wrapper">
+            <div class="logo">
+              <a href="javascript:void(0)" class="simple-text logo-mini">
+                ED
+              </a>
+              <a href="javascript:void(0)" class="simple-text logo-normal">
+                EEG Dashboard
+              </a>
+            </div>
+            <ul class="nav">
+              <li>
+                <a href="{{url_for('home')}}">
+                  <i class="tim-icons icon-chart-pie-36"></i>
+                  <p>Dashboard</p>
+                </a>
+              </li>
+              <li class="active">
+                <a href="{{url_for('upload')}}">
+                  <i class="tim-icons icon-atom"></i>
+                  <p>Upload Data</p>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="upload-windows">
+          <div class = 'upload'>
+            <h1 style="margin-top:130px;">Upload Data File</h1>
+              <form method=post enctype=multipart/form-data>
+                <input type=file name=file>
+                <input type=submit value=Upload>
+              </form>
+          </div>
+
+          <div class="model-selection">
+            <form action="{{ url_for('test') }}" method="POST">
+            <h1>Please select model and channels</h1>
+            <select name="list_status">
+              <option selected disabled>Select Model</option>
+              {% for each in model_list %}
+              <option value="{{each}}">{{each}}</option>
+              {% endfor %}
+            </select>
+
+            <select name="channels">
+              <option selected disabled>Choose number of channels</option>
+              {% for each in [14,28,32,64,128] %}
+              <option value="{{each}}">{{each}}</option>
+              {% endfor %}
+            </select>
+            </form>
+          </div>
+
+          <div class="realtime">
+            <h1>RealTime EEG Aquisition<h1>
+              <button>Start</button>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+      </body>
+      </html>

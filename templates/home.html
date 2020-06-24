@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>
+    EEG Visualisation Dashboard
+  </title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <link href="{{url_for('static',filename = '/styles/dashboard.css')}}" rel="stylesheet" />
+</head>
+<body class="">
+  <div class="wrapper">
+    <div class="sidebar">
+      <div class="sidebar-wrapper">
+        <div class="logo">
+          <a href="javascript:void(0)" class="simple-text logo-mini">
+            ED
+          </a>
+          <a href="javascript:void(0)" class="simple-text logo-normal">
+            EEG Dashboard
+          </a>
+        </div>
+        <ul class="nav">
+          <li class="active ">
+            <a href="{{url_for('home')}}">
+              <i class="tim-icons icon-chart-pie-36"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+          <li>
+            <a href="{{url_for('upload')}}">
+              <i class="tim-icons icon-atom"></i>
+              <p>Upload Data</p>
+            </a>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <div class="content">
+        <div class="row">
+          <div class="col-12">
+            <div class="card card-chart" style="height: 630px;width: 1130px;">
+              <div class="card-header ">
+                <div class="row">
+                  <div class="col-sm-6 text-left">
+                    <h5 class="card-category">Workload Prediction</h5>
+                  </div>
+                  <div class="col-sm-6">
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="chart-area">
+                    <div class="chart" id="bargraph">
+                      <canvas id="chart"></canvas> 
+                        <script>
+                          var ctx = document.getElementById('chart').getContext('2d');
+                          // console.log({{val}})
+                          // xlabel = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange']
+                          var chart = new Chart(ctx, {
+                              type: 'line',
+                              data: {
+                                  labels: {{labels}},
+                                  datasets: [{
+                                      label: 'Prediction Data',
+                                      data: {{val}},
+                                      backgroundColor: [
+                                          'rgba(255, 99, 132, 0.2)'],
+                                      borderColor: ['rgba(255, 99, 132, 1)'],
+                                      borderWidth: 2,
+                                      fill:false
+                                      
+                                  }]
+                              },
+                              options: {
+                                  scales: {
+                                      yAxes: [{
+                                          ticks: {
+                                              beginAtZero: true
+                                          }
+                                      }]
+                                  }
+                              }
+                          });
+                          </script>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>
+  </body>
+  </html>
