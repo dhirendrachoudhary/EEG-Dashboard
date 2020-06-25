@@ -1,0 +1,8 @@
+pandas
+numpy
+tensorflow
+json
+keras
+flask
+werkzeug
+plotly
