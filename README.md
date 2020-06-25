@@ -15,7 +15,7 @@ virtualenv venv <br/>
 Activate Virtualenv <br/>
 source venv/bin/activate <br/>
 
-To leave env -- <br/>
+### To leave env:  <br/>
 deactivate
 
 ## Install requirements
