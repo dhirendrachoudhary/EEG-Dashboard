@@ -2,9 +2,7 @@
 
 ## Description
 Data - contain txt Data files
-
 model - contain pretrained stored models
-
 uploads - csv file uploaded by users 
 
 ## Install requirements
