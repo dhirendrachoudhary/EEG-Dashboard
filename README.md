@@ -9,13 +9,13 @@ uploads - csv file uploaded by users
 ## Activate Virtual Environment
 pip install virtualenv
 
-cd my-project/\\
-virtualenv venv\
+cd my-project/ <br/>
+virtualenv venv <br/>
 
-Activate Virtualenv\
-source venv/bin/activate\
+Activate Virtualenv <br/>
+source venv/bin/activate <br/>
 
-To leave env --\\
+To leave env -- <br/>
 deactivate
 
 ## Install requirements
